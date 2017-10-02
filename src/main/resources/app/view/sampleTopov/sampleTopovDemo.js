@@ -29,7 +29,7 @@
     var addHost = 'addHost';
     var addLink = 'addLink';
     var removeLink = 'removeLink';
-    var removeService = 'removeService';
+    var removeHost = 'removeHost';
 
 
     var tempWhat = null;
@@ -80,7 +80,7 @@
 
     function sendRemoveHost(hostAddress) {
         flash.flash('Removing host with IP address ' + hostAddress);
-        wss.sendEvent(removeService, {serviceAddress: hostAddress});
+        wss.sendEvent(removeHost, {hostIpAddress: hostAddress});
     }
 
     // === ---------------------------
@@ -102,7 +102,7 @@
                         sendAddHost: sendAddHost,
                         sendAddLink: sendAddLink,
                         sendRemoveLink: sendRemoveLink,
-                        sendRemoveService: sendRemoveHost
+                        sendRemoveHost: sendRemoveHost
                     };
                 }]);
 }());

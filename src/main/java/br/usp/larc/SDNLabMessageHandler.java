@@ -24,7 +24,7 @@ public class SDNLabMessageHandler extends UiMessageHandler {
     private static final String ADD_HOST = "addHost";
     private static final String ADD_LINK = "addLink";
     private static final String REMOVE_LINK = "removeLink";
-    private static final String REMOVE_SERVICE = "removeService";
+    private static final String REMOVE_HOST = "removeHost";
     private final Logger log = LoggerFactory.getLogger(getClass());
     private MininetApiManager mininetApiManager;
     private Integer deviceCount;
@@ -104,14 +104,14 @@ public class SDNLabMessageHandler extends UiMessageHandler {
 
     private final class RemoveServiceHandler extends RequestHandler {
         public RemoveServiceHandler() {
-            super(REMOVE_SERVICE);
+            super(REMOVE_HOST);
         }
 
         @Override
         public void process(ObjectNode payload) {
-            log.info("Remove service");
-            String serviceAddress = string(payload, "serviceAddress");
-            log.info("Response: " + mininetApiManager.removeService(serviceAddress));
+            String hostIpAddress = string(payload, "hostIpAddress");
+            log.info("Remove host with ip address: " + hostIpAddress);
+            log.info("Response: " + mininetApiManager.removeService(hostIpAddress));
             deviceCount++;
 
         }

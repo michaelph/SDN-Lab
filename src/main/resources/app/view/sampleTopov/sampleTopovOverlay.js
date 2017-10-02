@@ -65,8 +65,8 @@
                 gid: 'stop',
                 tt: 'Remove host',
                 cb: function (data) {
-                    stds.sendRemoveHost(data.props.IP);
-                    $log.info('Remove service invoked with data:', data);
+                    $log.info('Remove host invoked with data:', data);
+                    stds.sendRemoveHost(data.propValues.ip);
 
                 }
             },
